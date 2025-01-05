@@ -54,8 +54,20 @@ def index():
 @app.route('/match',methods = ['POST', 'GET'])
 def find_hackathons():
     if request.method == 'POST':
-        user_data = request.json
-        # print(user_data)
+        print('here')
+        user_data = {
+            "name" : request.form.get('name'),
+            "age" : request.form.get('age'),
+            "location" : request.form.get('location'),
+            "skills" : request.form.getlist('skills'),
+            "fields" : request.form.getlist('fields'),
+            "mode" : request.form.get('mode'),
+            "experience" : request.form.get('experience'),
+            "team-size" : request.form.get('team-size'),
+            "availability" : request.form.get('availability'),
+            "preferences" : request.form.get('preferences'),
+        }
+    
         response = chat_session.send_message(f"user_data is {user_data} and hackathon_data is {hackathons_data}")
         response_text = response.text
         final_response = response_text.replace("```","").replace("json","")

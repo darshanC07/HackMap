@@ -73,5 +73,6 @@ def find_hackathons():
         final_response = response_text.replace("```","").replace("json","")
         json_data = json.loads(final_response)
         return json_data
-        
-app.run(port=5000,debug=True)
+
+if __name__ == "__main__":
+    app.run(port=5000,debug=True)

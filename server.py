@@ -28,7 +28,7 @@ hackathons_data = {
     }
 }
 
-genai.configure(api_key=os.getenv["GEMINI_API_KEY"])
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
 generation_config = {
   "temperature": 1,

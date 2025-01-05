@@ -1,9 +1,9 @@
-from dotenv import dotenv_values
+# from dotenv import dotenv_values
 import google.generativeai as genai
 from flask import Flask,request,render_template
 from flask_cors import CORS
 import requests
-import json
+import json, os
 
 secrets = dotenv_values()
 
@@ -28,7 +28,7 @@ hackathons_data = {
     }
 }
 
-genai.configure(api_key=secrets["GEMINI_API_KEY"])
+genai.configure(api_key=os.getenv["GEMINI_API_KEY"])
 
 generation_config = {
   "temperature": 1,
